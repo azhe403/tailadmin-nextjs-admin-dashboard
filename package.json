@@ -7,8 +7,7 @@
     "dev-https": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel-build": "vercel"
+    "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -39,6 +38,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "gh-pages": "^6.2.0",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
