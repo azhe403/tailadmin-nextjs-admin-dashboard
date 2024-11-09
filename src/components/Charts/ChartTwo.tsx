@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { ApexOptions } from "apexcharts";
-import React from "react";
-import dynamic from "next/dynamic";
+import { ApexOptions } from 'apexcharts';
+import React from 'react';
+import dynamic from 'next/dynamic';
 
-const ReactApexChart = dynamic(() => import("react-apexcharts"), {
-  ssr: false,
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
+  ssr: false
 });
 
 const options: ApexOptions = {
-  colors: ["#3C50E0", "#80CAEE"],
+  colors: ['#3C50E0', '#80CAEE'],
   chart: {
-    fontFamily: "Satoshi, sans-serif",
-    type: "bar",
+    fontFamily: 'Satoshi, sans-serif',
+    type: 'bar',
     height: 335,
     stacked: true,
     toolbar: {
-      show: false,
+      show: false
     },
     zoom: {
-      enabled: false,
-    },
+      enabled: false
+    }
   },
 
   responsive: [
@@ -30,42 +30,42 @@ const options: ApexOptions = {
         plotOptions: {
           bar: {
             borderRadius: 0,
-            columnWidth: "25%",
-          },
-        },
-      },
-    },
+            columnWidth: '25%'
+          }
+        }
+      }
+    }
   ],
   plotOptions: {
     bar: {
       horizontal: false,
       borderRadius: 0,
-      columnWidth: "25%",
-      borderRadiusApplication: "end",
-      borderRadiusWhenStacked: "last",
-    },
+      columnWidth: '25%',
+      borderRadiusApplication: 'end',
+      borderRadiusWhenStacked: 'last'
+    }
   },
   dataLabels: {
-    enabled: false,
+    enabled: false
   },
 
   xaxis: {
-    categories: ["M", "T", "W", "T", "F", "S", "S"],
+    categories: ['M', 'T', 'W', 'T', 'F', 'S', 'S']
   },
   legend: {
-    position: "top",
-    horizontalAlign: "left",
-    fontFamily: "Satoshi",
+    position: 'top',
+    horizontalAlign: 'left',
+    fontFamily: 'Satoshi',
     fontWeight: 500,
-    fontSize: "14px",
+    fontSize: '14px',
 
     markers: {
-      radius: 99,
-    },
+      // radius: 99,
+    }
   },
   fill: {
-    opacity: 1,
-  },
+    opacity: 1
+  }
 };
 
 interface ChartTwoState {
@@ -78,13 +78,13 @@ interface ChartTwoState {
 const ChartTwo: React.FC = () => {
   const series = [
     {
-      name: "Sales",
-      data: [44, 55, 41, 67, 22, 43, 65],
+      name: 'Sales',
+      data: [44, 55, 41, 67, 22, 43, 65]
     },
     {
-      name: "Revenue",
-      data: [13, 23, 20, 8, 13, 27, 15],
-    },
+      name: 'Revenue',
+      data: [13, 23, 20, 8, 13, 27, 15]
+    }
   ];
 
   return (
@@ -140,7 +140,7 @@ const ChartTwo: React.FC = () => {
             series={series}
             type="bar"
             height={350}
-            width={"100%"}
+            width={'100%'}
           />
         </div>
       </div>
