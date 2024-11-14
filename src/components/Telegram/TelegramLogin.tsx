@@ -16,33 +16,33 @@ const TelegramLogin: React.FC = () => {
   const queryParams = Object.fromEntries(searchParams);
   console.debug('query params', queryParams);
 
+  const fetchData = async () => {
+    setProgressMessage('Validating session...');
+
+    const { result } = await validateTelegramSession({
+      session_id: queryParams.session_id,
+      id: queryParams.id,
+      first_name: queryParams.first_name,
+      last_name: queryParams.last_name,
+      username: queryParams.username,
+      photo_url: queryParams.photo_url,
+      auth_date: queryParams.auth_date,
+      hash: queryParams.hash
+    });
+
+    if (result.isSessionValid) {
+      const bearerToken = result.bearerToken;
+
+      Cookies.set('bearerToken', bearerToken);
+      dispatch(setName(queryParams.first_name));
+      dispatch(setId(queryParams.id));
+      router.replace('/');
+
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      setProgressMessage('Validating session...');
-
-      const { result } = await validateTelegramSession({
-        session_id: queryParams.session_id,
-        id: queryParams.id,
-        first_name: queryParams.first_name,
-        last_name: queryParams.last_name,
-        username: queryParams.username,
-        photo_url: queryParams.photo_url,
-        auth_date: queryParams.auth_date,
-        hash: queryParams.hash
-      });
-
-      if (result.isSessionValid) {
-        const bearerToken = result.bearerToken;
-
-        Cookies.set('bearerToken', bearerToken);
-        dispatch(setName(queryParams.first_name));
-        dispatch(setId(queryParams.id));
-        router.replace('/');
-
-        setLoading(false);
-      }
-    };
-
     if (queryParams.session_id)
       fetchData();
   }, []);

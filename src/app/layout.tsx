@@ -6,6 +6,8 @@ import '@/css/style.css';
 import React, { useEffect, useState } from 'react';
 import Loader from '@/components/common/Loader';
 import ReduxProvider from '@/state/ReduxProvider';
+import TelegramLogin from '@/components/Telegram/TelegramLogin';
+import SessionListener from '@/components/Telegram/SessionListener';
 
 export default function RootLayout({
                                      children
@@ -25,6 +27,8 @@ export default function RootLayout({
     <html lang="en">
     <body suppressHydrationWarning={true}>
     <ReduxProvider>
+      <TelegramLogin />
+      <SessionListener />
       <div className="dark:bg-boxdark-2 dark:text-bodydark">
         {loading ? <Loader /> : children}
       </div>
