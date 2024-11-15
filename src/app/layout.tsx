@@ -3,7 +3,7 @@ import 'jsvectormap/dist/jsvectormap.css';
 import 'flatpickr/dist/flatpickr.min.css';
 import '@/css/satoshi.css';
 import '@/css/style.css';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Loader from '@/components/common/Loader';
 import ReduxProvider from '@/state/ReduxProvider';
 import TelegramLogin from '@/components/Telegram/TelegramLogin';
@@ -27,8 +27,10 @@ export default function RootLayout({
     <html lang="en">
     <body suppressHydrationWarning={true}>
     <ReduxProvider>
-      <TelegramLogin />
-      <SessionListener />
+      <Suspense>
+        <TelegramLogin />
+        <SessionListener />
+      </Suspense>
       <div className="dark:bg-boxdark-2 dark:text-bodydark">
         {loading ? <Loader /> : children}
       </div>
