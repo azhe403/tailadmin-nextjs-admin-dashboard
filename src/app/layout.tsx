@@ -6,9 +6,9 @@ import '@/css/satoshi.css';
 import '@/css/style.css';
 import React, { Suspense, useEffect, useState } from 'react';
 import Loader from '@/components/common/Loader';
-import ReduxProvider from '@/state/ReduxProvider';
-import TelegramLogin from '@/components/Telegram/TelegramLogin';
-import SessionListener from '@/components/Telegram/SessionListener';
+import ReduxProvider from "@zizibot/ui/redux-provider";
+import TelegramLogin from "@zizibot/ui/telegram-login";
+import SessionListener from "@zizibot/ui/session-listener";
 
 export default function RootLayout({
                                      children
