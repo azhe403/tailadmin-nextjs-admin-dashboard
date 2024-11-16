@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { useAppDispatch } from '@/state/hook';
 import { setId, setName } from '@/state/slicers/user';
-import { validateTelegramSession } from 'zizibot-rest-service/src/internal/user-rest';
+import { validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
 
 const TelegramLogin: React.FC = () => {
   const [loading, setLoading] = useState(true);

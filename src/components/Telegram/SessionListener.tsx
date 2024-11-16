@@ -2,9 +2,9 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { getUserInfo } from 'zizibot-rest-service/src/internal/user-rest';
 import { useAppDispatch } from '@/state/hook';
 import { setId, setName } from '@/state/slicers/user';
+import { getUserInfo } from '@zizibot/rest-client/internal/user-rest';
 
 export default function SessionListener() {
   const pathname = usePathname();
